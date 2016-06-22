@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,22 +19,37 @@
             android:layout_height="45dp" />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnLimpiar"
+                android:layout_weight="1"
+                android:text="AC"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:id="@+id/btnSuprimir"
+                android:text="Supr"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_weight=".99"
-            android:text="C"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btnDivision"
-            android:layout_weight=".01"
-            android:text="/"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btnModulo"
+                android:layout_weight="1"
+                android:text="Mod"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btnDivision"
+                android:layout_weight="1"
+                android:text="/"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
