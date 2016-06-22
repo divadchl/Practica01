@@ -4,6 +4,8 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:textSize="20sp"
+        android:gravity="end"
         android:layout_marginTop="26dp"
         android:id="@+id/txvResultado"
         android:layout_width="match_parent"

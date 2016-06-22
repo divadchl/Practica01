@@ -72,7 +72,7 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
                     txvResultado.setText("");
                     break;
                 case R.id.btnSuprimir:
-                    if(strContenidoEditText.length()==1)
+                    if(strContenidoEditText.length()==1 || strContenidoEditText=="")
                     {
                         txvResultado.setText("");
                     }
