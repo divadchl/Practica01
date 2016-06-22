@@ -14,7 +14,6 @@ import mx.com.serviciosinformaticosintegrales.practica01.R;
  * Created by David on 20/06/2016.
  */
 public class FragmentoDecimal extends Fragment implements View.OnClickListener {
-    private TextView txvOperaciones;
     private TextView txvResultado;
     private String strContenidoEditText="";
     private boolean blnDecimal= false;
@@ -23,7 +22,7 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
     private boolean blnMultiplicacion = false;
     private boolean blnDivision = false;
     private boolean blnModulo = false;
-
+    Double[] numeros = new Double[2];
 
     @Nullable
     @Override
@@ -49,8 +48,6 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.btn0).setOnClickListener(this);
         view.findViewById(R.id.btnPunto).setOnClickListener(this);
         view.findViewById(R.id.btnIgual).setOnClickListener(this);
-
-        txvOperaciones = (TextView) view.findViewById(R.id.txvOperaciones);
         txvResultado = (TextView) view.findViewById(R.id.txvResultado);
 
         return view;
@@ -59,109 +56,128 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(final View clicked) {
+        Double dblResultado;
 
+        strContenidoEditText = txvResultado.getText().toString();
 
         try {
             switch (clicked.getId()) {
                 case R.id.btnLimpiar:
                     blnDecimal= false;
-                    txvOperaciones.setText("");
                     txvResultado.setText("");
                     break;
                 case R.id.btnSuprimir:
-
+                    strContenidoEditText=strContenidoEditText.substring(0, strContenidoEditText.length()-1);
                     break;
                 case R.id.btnModulo:
                     blnModulo= false;
-                    strContenidoEditText = strContenidoEditText + "%";
-                    txvOperaciones.setText(strContenidoEditText);
+                    blnDecimal=false;
+                    numeros[0]=Double.parseDouble(strContenidoEditText);
+                    txvResultado.setText("");
                     break;
                 case R.id.btnDivision:
                     blnDivision= false;
-                    strContenidoEditText = strContenidoEditText + "/";
-                    txvOperaciones.setText(strContenidoEditText);
+                    blnDecimal=false;
+                    numeros[0]=Double.parseDouble(strContenidoEditText);
+                    txvResultado.setText("");
                     break;
                 case R.id.btn7:
-                    strContenidoEditText = strContenidoEditText + "7";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "7");
                     break;
                 case R.id.btn8:
-                    strContenidoEditText = strContenidoEditText + "8";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "8");
                     break;
                 case R.id.btn9:
-                    strContenidoEditText = strContenidoEditText + "9";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "9");
                     break;
                 case R.id.btnMultiplicacion:
                     blnMultiplicacion= false;
-                    strContenidoEditText = strContenidoEditText + "x";
-                    txvOperaciones.setText(strContenidoEditText);
+                    blnDecimal=false;
+                    numeros[0]=Double.parseDouble(strContenidoEditText);
+                    txvResultado.setText("");
                     break;
                 case R.id.btn4:
-                    strContenidoEditText = strContenidoEditText + "4";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "4");
                     break;
                 case R.id.btn5:
-                    strContenidoEditText = strContenidoEditText + "5";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "5");
                     break;
                 case R.id.btn6:
-                    strContenidoEditText = strContenidoEditText + "6";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "6");
                     break;
                 case R.id.btnResta:
                     blnResta= true;
-                    strContenidoEditText = strContenidoEditText + "-";
-                    txvOperaciones.setText(strContenidoEditText);
+                    blnDecimal=false;
+                    numeros[0]=Double.parseDouble(strContenidoEditText);
+                    txvResultado.setText("");
                     break;
                 case R.id.btn1:
-                    strContenidoEditText = strContenidoEditText + "1";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "1");
                     break;
                 case R.id.btn2:
-                    strContenidoEditText = strContenidoEditText + "2";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "2");
                     break;
                 case R.id.btn3:
-                    strContenidoEditText = strContenidoEditText + "3";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "3");
                     break;
                 case R.id.btnSuma:
-                    blnSuma= true
-                    strContenidoEditText = strContenidoEditText + "+";
-                    txvOperaciones.setText(strContenidoEditText);
+                    blnSuma= true;
+                    blnDecimal=false;
+                    numeros[0]=Double.parseDouble(strContenidoEditText);
+                    txvResultado.setText("");
                     break;
                 case R.id.btn0:
-                    strContenidoEditText = strContenidoEditText + "0";
-                    txvOperaciones.setText(strContenidoEditText);
+                    txvResultado.setText(strContenidoEditText + "0");
                     break;
                 case R.id.btnPunto:
                     if(blnDecimal==false)
                     {
-                        txvOperaciones.setText(strContenidoEditText+".");
+                        txvResultado.setText(strContenidoEditText+".");
+                        txvResultado.setText(strContenidoEditText + ".");
                         blnDecimal= true;
                     }
                     else
                     {
                         return;
                     }
-
-                    strContenidoEditText = strContenidoEditText + ".";
-                    txvOperaciones.setText(strContenidoEditText);
                     break;
                 case R.id.btnIgual:
-
-
-
-                    
-                    txvOperaciones.setText("Resultado");
-                    txvOperaciones.setText(strContenidoEditText + ".");
+                    numeros[1]= Double.parseDouble(strContenidoEditText);
+                    if(blnSuma == true)
+                    {
+                        dblResultado = numeros[0] + numeros [1];
+                        txvResultado.setText(String.valueOf(dblResultado));
+                    }
+                    else if (blnResta==true)
+                    {
+                        dblResultado = numeros[0] - numeros [1];
+                        txvResultado.setText(String.valueOf(dblResultado));
+                    }
+                    else if (blnMultiplicacion==true)
+                    {
+                        dblResultado = numeros[0] * numeros [1];
+                        txvResultado.setText(String.valueOf(dblResultado));
+                    }
+                    else if(blnDivision==true)
+                    {
+                        dblResultado = numeros[0] / numeros [1];
+                        txvResultado.setText(String.valueOf(dblResultado));
+                    }
+                    else if (blnMultiplicacion==true)
+                    {
+                        dblResultado = numeros[0] % numeros [1];
+                        txvResultado.setText(String.valueOf(dblResultado));
+                    }
+                    blnDecimal=false;
+                    blnSuma=false;
+                    blnResta=false;
+                    blnMultiplicacion=false;
+                    blnDivision=false;
+                    blnModulo=false;
                     break;
             }
         }catch(Exception e){
-            txvOperaciones.setText("Error");
-            txvOperaciones.setText("");
+            txvResultado.setText("Error");
         }
 
     }
