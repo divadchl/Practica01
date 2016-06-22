@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void cambiarFragmento1() {
-        FragmentoBinario f = FragmentoBinario.newInstance();
-        getFragmentManager().beginTransaction().replace(R.id.fragmentHolder, f).commit();
+        //FragmentoBinario f = FragmentoBinario.newInstance();
+        getFragmentManager().beginTransaction().replace(R.id.fragmentHolder, new FragmentoBinario()).commit();
     }
     private void cambiarFragmento2() {
         getFragmentManager().beginTransaction().replace(R.id.fragmentHolder, new FragmentoDecimal()).commit();
