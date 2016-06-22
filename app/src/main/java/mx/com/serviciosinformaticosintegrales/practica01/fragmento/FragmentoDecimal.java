@@ -58,25 +58,37 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
     public void onClick(final View clicked) {
         Double dblResultado;
 
-        strContenidoEditText = txvResultado.getText().toString();
+        strContenidoEditText = txvResultado.getText().toString().replaceFirst("^0*", "");
 
         try {
             switch (clicked.getId()) {
                 case R.id.btnLimpiar:
                     blnDecimal= false;
+                    blnSuma= false;
+                    blnResta= false;
+                    blnMultiplicacion=false;
+                    blnDivision=false;
+                    blnModulo= false;
                     txvResultado.setText("");
                     break;
                 case R.id.btnSuprimir:
-                    strContenidoEditText=strContenidoEditText.substring(0, strContenidoEditText.length()-1);
+                    if(strContenidoEditText.length()==1)
+                    {
+                        txvResultado.setText("");
+                    }
+                    else
+                    {
+                        txvResultado.setText(strContenidoEditText.substring(0, strContenidoEditText.length() -1));
+                    }
                     break;
                 case R.id.btnModulo:
-                    blnModulo= false;
+                    blnModulo= true;
                     blnDecimal=false;
                     numeros[0]=Double.parseDouble(strContenidoEditText);
                     txvResultado.setText("");
                     break;
                 case R.id.btnDivision:
-                    blnDivision= false;
+                    blnDivision= true;
                     blnDecimal=false;
                     numeros[0]=Double.parseDouble(strContenidoEditText);
                     txvResultado.setText("");
@@ -91,7 +103,7 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
                     txvResultado.setText(strContenidoEditText + "9");
                     break;
                 case R.id.btnMultiplicacion:
-                    blnMultiplicacion= false;
+                    blnMultiplicacion= true;
                     blnDecimal=false;
                     numeros[0]=Double.parseDouble(strContenidoEditText);
                     txvResultado.setText("");
@@ -163,11 +175,12 @@ public class FragmentoDecimal extends Fragment implements View.OnClickListener {
                         dblResultado = numeros[0] / numeros [1];
                         txvResultado.setText(String.valueOf(dblResultado));
                     }
-                    else if (blnMultiplicacion==true)
+                    else if (blnModulo==true)
                     {
                         dblResultado = numeros[0] % numeros [1];
                         txvResultado.setText(String.valueOf(dblResultado));
                     }
+
                     blnDecimal=false;
                     blnSuma=false;
                     blnResta=false;

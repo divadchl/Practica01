@@ -16,33 +16,34 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnLimpiar"
-                android:layout_weight="1"
-                android:text="AC"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <Button
-                android:textAllCaps="false"
-                android:layout_weight="1"
-                android:id="@+id/btnSuprimir"
-                android:text="Supr"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
 
-            <Button
-                android:id="@+id/btnModulo"
-                android:layout_weight="1"
-                android:text="Mod"
-                android:textAllCaps="false"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-            <Button
-                android:id="@+id/btnDivision"
-                android:layout_weight="1"
-                android:text="/"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/btnLimpiar"
+            android:layout_weight="1"
+            android:text="AC"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Button
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            android:id="@+id/btnSuprimir"
+            android:text="Supr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnModulo"
+            android:layout_weight="1"
+            android:text="Mod"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -68,9 +69,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
         <Button
+            android:id="@+id/btnDivision"
             android:layout_weight="1"
-            android:id="@+id/btnMultiplicacion"
-            android:text="X"
+            android:text="/"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -99,10 +100,11 @@
             android:layout_height="match_parent" />
         <Button
             android:layout_weight="1"
-            android:id="@+id/btnResta"
-            android:text="-"
+            android:id="@+id/btnMultiplicacion"
+            android:text="X"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
+
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -129,8 +131,8 @@
             android:layout_height="match_parent" />
         <Button
             android:layout_weight="1"
-            android:id="@+id/btnSuma"
-            android:text="+"
+            android:id="@+id/btnResta"
+            android:text="-"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -140,7 +142,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_weight="13"
+            android:layout_weight="1"
             android:id="@+id/btn0"
             android:text="0"
             android:layout_width="wrap_content"
@@ -157,5 +159,12 @@
             android:text="="
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/btnSuma"
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 </LinearLayout>
